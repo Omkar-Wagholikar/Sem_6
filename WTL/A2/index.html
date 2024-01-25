@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+    <link rel="stylesheet" href="styles.css"> <!-- External CSS file -->
+    <style>
+        h1 {
+            color: #4285f4; 
+        }
+
+        p {
+            font-style: italic;
+        }
+
+        .btn-primary {
+            background-color: #34a853; 
+            border-color: #34a853;
+        }
+
+        .recipe-container {
+            display: none;
+            margin-top: 20px;
+        }
+
+        .recipe-container iframe {
+            width: 100%;
+            height: 500px;
+            border: none;
+        }
+    </style>
+    <title>Recipe Recommendations</title>
+</head>
+<body>
+
+<div class="container">
+    <h1>Welcome to Recipe Recommendations</h1>
+    <p>Explore our collection of delicious recipes!</p>
+    <a href="#" class="btn btn-primary" onclick="showRecipe('recipe1')">Recipe 1</a>
+    <a href="#" class="btn btn-primary" onclick="showRecipe('recipe2')">Recipe 2</a>
+    <a href="#" class="btn btn-primary" onclick="showRecipe('recipe3')">Recipe 3</a>
+    <a href="#" class="btn btn-primary" onclick="showRecipe('recipe4')">Recipe 4</a>
+    <a href="#" class="btn btn-primary" onclick="showRecipe('recipe5')">Recipe 5</a>
+</div>
+
+<!-- Include iframes for each recipe -->
+<div id="recipe1" class="recipe-container">
+    <iframe src="r1.html" frameborder="0" allowfullscreen></iframe>
+</div>
+<div id="recipe2" class="recipe-container">
+    <iframe src="r2.html" frameborder="0" allowfullscreen></iframe>
+</div>
+<div id="recipe3" class="recipe-container">
+    <iframe src="r3.html" frameborder="0" allowfullscreen></iframe>
+</div>
+<div id="recipe4" class="recipe-container">
+    <iframe src="r4.html" frameborder="0" allowfullscreen></iframe>
+</div>
+<div id="recipe5" class="recipe-container">
+    <iframe name = "5" src="r5.html" frameborder="0" allowfullscreen></iframe>
+</div>
+
+<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+<script>
+    function showRecipe(recipeId) {
+        $(".recipe-container").hide();
+        $("#" + recipeId).show();
+    }
+    const iframe = document.getElementsByName("5");
+     
+    iframeEl.addEventListener('load', function() {
+    const networkErrorOccurred = !iframeEl.contentDocument;
+    const serverErrorOccurred = (
+        !networkErrorOccurred &&
+        !iframeEl.contentDocument.querySelector('#well-known-element')
+    );
+    if (networkErrorOccurred || serverErrorOccurred) {
+        let errorMessage;
+        if (networkErrorOccurred) {
+            errorMessage = 'Error: Network error';
+        } else if (serverErrorOccurred) {
+            errorMessage = 'Error: Server error';
+        } else {
+            // Assert that the above code is correct.
+            throw new Error('networkErrorOccurred and serverErrorOccurred are both false');
+        }
+        console.log("Error detected")
+        alert(errorMessage);
+    }
+});
+</script>
+
+</body>
+</html>
