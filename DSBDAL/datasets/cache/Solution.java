@@ -21,3 +21,8 @@ class Solution {
         a.seive(9999);
     }
 }
+// https://leetcode.com/problems/k-inverse-pairs-array
+// https://leetcode.com/problems/longest-common-subsequence/description/
+// https://leetcode.com/problems/number-of-submatrices-that-sum-to-target/description/
+// https://leetcode.com/problems/maximum-length-of-a-concatenated-string-with-unique-characters/description/
+// https://github.com/Edd17369/Algorithms/blob/2f9477ed9e2f1814275c2480232871dbc48222ba/DP.py
