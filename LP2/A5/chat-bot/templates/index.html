@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Query Chat</title>
+    <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
+</head>
+<body>
+
+    
+    <div class="chat-container">
+        <div class="header">Hotel Registeration</div>
+        
+        <div id="chatContainer"></div>
+
+        <div class="input-container">
+            <label for="queryInput">Enter Query:</label>
+            <input type="text" id="queryInput">
+            <button onclick="sendQuery()">Submit</button>
+        </div>
+    </div>
+    <script>
+        function sendQuery() {
+            var userQuery = document.getElementById('queryInput').value;
+            
+            $.ajax({
+            url: '/query',
+            method: 'GET',
+            data: {query: userQuery},
+            success: function(response) {
+                appendToChat(userQuery, 'User');
+                appendToChat(response.result, 'Bot');
+                document.getElementById('queryInput').value = '';  // Clear the input after submission
+            },
+            error: function(error) {
+                console.error('Error:', error);
+            }
+        });
+    }
+
+    function appendToChat(message, sender) {
+        var chatBubble = document.createElement('div');
+        chatBubble.className = `chat-bubble ${sender.toLowerCase()}`;
+        chatBubble.innerHTML = `<strong>${sender}:</strong> ${message}`;
+        document.getElementById('chatContainer').appendChild(chatBubble);
+    }
+</script>
+
+<style>
+    body {
+        font-family: 'Arial', sans-serif;
+        background-color: #f4f4f4;
+        margin: 0;
+        padding: 0;
+    }
+
+    .chat-container {
+        max-width: 400px;
+        margin: 50px auto;
+        background-color: #fff;
+        border: 1px solid #ccc;
+        border-radius: 5px;
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        overflow: hidden;
+    }
+
+    .header {
+        background-color: #4285f4;
+        color: #fff;
+        padding: 10px;
+        text-align: center;
+        font-size: 18px;
+    }
+
+    #chatContainer {
+        max-height: 300px;
+        overflow-y: scroll;
+        padding: 10px;
+    }
+
+    .input-container {
+        display: flex;
+        padding: 10px;
+        background-color: #f4f4f4;
+        border-top: 1px solid #ccc;
+    }
+
+    label {
+        margin-right: 10px;
+    }
+
+    input {
+        flex: 1;
+        padding: 8px;
+        border: 1px solid #ccc;
+        border-radius: 3px;
+    }
+
+    button {
+        padding: 8px 15px;
+        background-color: #4285f4;
+        color: #fff;
+        border: none;
+        border-radius: 3px;
+        cursor: pointer;
+    }
+
+    .chat-bubble {
+        margin-bottom: 10px;
+        padding: 10px;
+        border-radius: 5px;
+        max-width: 80%;
+    }
+
+    .user {
+        background-color: #e0f7fa;
+        align-self: flex-end;
+    }
+
+    .bot {
+        background-color: #c8e6c9;
+        align-self: flex-start;
+    }
+</style>
+
+</body>
+</html>
