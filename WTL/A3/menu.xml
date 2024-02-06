@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE menu SYSTEM "menu.dtd">
+<?xml-stylesheet type="text/xsl" href="menu.xsl"?>
+<menu>
+    <category>
+        <name>Admin</name>
+        <item>
+            <name>Alfredo</name>
+            <price>$7.99</price>
+        </item>
+        <item>
+            <name>Mozzart</name>
+            <price>$6.99</price>
+        </item>
+    </category>
+    <category>
+        <name>Engineers</name>
+        <item>
+            <name>Spaghetti</name>
+            <price>$12.99</price>
+        </item>
+        <item>
+            <name>Chicken</name>
+            <price>$14.99</price>
+        </item>
+    </category>
+    <category>
+        <name>HR</name>
+        <item>
+            <name>Tiramisu</name>
+            <price>$8.99</price>
+        </item>
+        <item>
+            <name>Chinmay</name>
+            <price>$7.99</price>
+        </item>
+    </category>
+</menu>
