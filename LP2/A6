@@ -1,0 +1,19 @@
+
+
+import java.util.*;
+
+public class Codechef {
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+        String inp = sc.nextLine();
+        int size = inp.length();
+        for(int i=0; i<size; i++){
+            System.out.print((char)(127 & inp.charAt(i)));
+        }
+        System.out.println();
+        for(int i=0; i<size; i++){
+            System.out.print((char)(127 ^ inp.charAt(i)));
+        }
+        System.out.println();
+    }
+}
